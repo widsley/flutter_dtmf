@@ -24,9 +24,11 @@ class DtmfPlugin extends DtmfPlatform {
   @override
   Future<bool> playTone(
       {required String digits,
-      int? durationMs,
-      double? samplingRate,
-      double? volume}) async {
+      int? durationMs = 160,
+      double? samplingRate = 500,
+      double? volume = 1,
+      bool ignoreDtmfSystemSettings = false,
+      bool forceMaxVolume = false }) async {
     var dtmf = DTMF();
     return await dtmf.playTone(
         digits: digits,
